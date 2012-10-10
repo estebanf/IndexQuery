@@ -6,7 +6,7 @@ require('coffee-script');
 
 var express = require('express')
   , routes = require('./routes')
-  , user = require('./routes/user')
+  , user = require('./routes/search_index')
   , http = require('http')
   , path = require('path');
 
@@ -16,6 +16,7 @@ app.configure(function(){
   app.set('port', process.env.PORT || 3030);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+  app.use(require('connect-assets')());
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
@@ -29,7 +30,7 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+require('./routes/search_index')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

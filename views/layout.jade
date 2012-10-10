@@ -1,7 +1,27 @@
 doctype 5
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    title IndexQuery
+    script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js')
+    script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js')
+    != js(support_script)
+    != css('bootstrap.min')
   body
-    block content
+    .container
+      .row
+        .span12
+          .navbar
+              .navbar-inner
+                  a.brand(href='#') Index Query
+                  ul.nav
+                    li.active
+                      a(href='#') Indexes
+                    li
+                      a(href='#') Queries
+                    li
+                      a(href='#') Results
+      .row
+        .span10
+          block content
+    script(src='http://code.jquery.com/jquery-latest.js')
+    != js('bootstrap.min')
