@@ -1,0 +1,1 @@
+An utility app to move the load of complex queries of structrured data out of applications.

@@ -2,6 +2,7 @@
 /**
  * Module dependencies.
  */
+require('coffee-script');
 
 var express = require('express')
   , routes = require('./routes')
@@ -12,7 +13,7 @@ var express = require('express')
 var app = express();
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || 3030);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon());
