@@ -2,8 +2,6 @@
 /**
  * Module dependencies.
  */
-require('coffee-script');
-
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/search_index')
@@ -30,6 +28,11 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+app.get('/new', routes.index);
+app.get('/partials/:name', function(req,res){
+  var name = req.params.name;
+  res.render('partials/' + name);
+});
 require('./routes/search_index')(app);
 
 http.createServer(app).listen(app.get('port'), function(){

@@ -1,0 +1,27 @@
+div
+  h1
+    | Existing indexes
+  table.table.table-striped.table-bordered
+    thead
+      tr
+        td
+          h4
+            | Name
+        td
+          h4
+            | Actions
+    tbody
+      tr(ng-repeat="index in indexes")
+        td
+          | {{index.name}}
+        td
+          a.btn.btn-info.space_button
+            | View
+          a.btn.btn-primary.space_button
+            | Edit
+          a.btn.btn-danger.space_button
+            | Delete
+  a(href="/new")
+      | create
+
+
